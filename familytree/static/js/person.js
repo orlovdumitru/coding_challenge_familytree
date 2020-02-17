@@ -1,29 +1,18 @@
 (function() {
 
     // document.querySelector('#create-relation-btn').addEventListener('click', create_relation);
-
    
-    
 
 })();
 
-function create_relation(rawForm, id){
-    let elements = rawForm.form.elements;
-    let params = '';
-    let value;
-    // let relation_form = document.querySelector('#create-relation-form');
-    // relation_form = JSON.parse(relation_form);
-    for (let i = 0; i < elements.length; i++){
-        params += elements[i].name + "=" + encodeURIComponent(value) + "&";
-    }
-    // let formData = new FormData();
-    // formData.append
-    // console.log('works')
-    // console.log(relation_form)
+document.getElementById('create-relation-form').addEventListener('submit', function(event){
+    event.preventDefault();
+    var form = this;
+    var data = new FormData(form);
     let xhr = new XMLHttpRequest();
     xhr.open(
         'POST',
-        "create_relation/"+id,
+        `/create_relation/`,
         false
     );
     // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -37,5 +26,5 @@ function create_relation(rawForm, id){
             alert('Request failed.  Returned status of ' + xhr.status);
         }
     };
-    xhr.send(params);
-}
+    xhr.send(data);
+});

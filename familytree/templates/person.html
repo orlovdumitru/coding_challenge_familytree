@@ -30,15 +30,16 @@
                 </select>
             </div>
         </div>
-        <input type="button" id="create-relation-btn" value="Create relation" onclick="create_relation(this, {{person.id}})">
+        <input name="person_id" value="{{person.id}}" type="hidden">
+        <input type="submit">
     </form>
 </div>
 <div class="relation-container">
     <table>
         <thead>
             <tr>
-                <td>Main person</td>
-                <td>Related to</td>
+                <td colspan="2">Relation > </td>
+                <!-- <td>Related to</td> -->
                 <td>Relation type</td>
             </tr>
         </thead>

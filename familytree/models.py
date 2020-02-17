@@ -21,7 +21,8 @@ class Person(TimeStamp):
     birth_date = models.DateField()
 
     def __str__(self):
-        return f'{first_name} {last_name}'
+        # return f"{first_name} {last_name}"
+        return '{} {}'.format(first_name, last_name)
 
 
 class RelationType(TimeStamp):
