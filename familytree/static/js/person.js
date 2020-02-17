@@ -1,6 +1,4 @@
 (function() {
-
-    // document.querySelector('#create-relation-btn').addEventListener('click', create_relation);
    
 
 })();

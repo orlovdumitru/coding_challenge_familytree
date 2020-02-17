@@ -4,7 +4,7 @@
     let xhr = new XMLHttpRequest();
     xhr.open(
         'GET',
-        'get_all/' //'{% url "get_all/" %}'
+        'get_all/'
     );
     xhr.onload = function() {
         if (xhr.status === 200) {
@@ -34,7 +34,6 @@
     function addListenerToRows() {
         all_rows = document.querySelectorAll('#main-table tbody tr');
         for (let row of all_rows) {
-            // row.removeEventListener('click', getPersonInfo);
             row.addEventListener('click', getPersonInfo, false);
             row.param = this;
         }
@@ -44,27 +43,6 @@
             let person_id = getId(element);
             let xhr = new XMLHttpRequest();
             window.location = `person/${person_id}`
-            // xhr.open(
-            //     'GET',
-            //     'get_person/' + person_id
-            // );
-            // xhr.onload = function() {
-            //     if (xhr.status === 200) {
-            //         let person_info = JSON.parse(xhr.responseText);
-            //         console.log(xhr.responseText)
-            //         console.log(person_info)
-            //         document.querySelector('first_name').value = person_info['first_name'];
-            //         document.querySelector('last_name').value = person_info['last_name'];
-            //         document.querySelector('phone_nr').value = person_info['phone_number'];
-            //         document.querySelector('email').value = person_info['email'];
-            //         document.querySelector('address').value = person_info['address'];
-            //         document.querySelector('date_birth').value = person_info['date_birth'];
-
-            //     } else {
-            //         alert('Request failed.  Returned status of ' + xhr.status);
-            //     }
-            // };
-            // xhr.send();
 
         }
     }

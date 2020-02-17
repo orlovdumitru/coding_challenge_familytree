@@ -45,14 +45,9 @@ def person(request, person_id=None):
             all_persons = Person.objects.values()
             relations = RelationType.objects.values()
 
-            # everyone = Person.objects.first()
             related_person = Relation.objects.values(
                 'relative__first_name',
                 'relative__last_name',
-                # 'relative__phone_number',
-                # 'relative__email',
-                # 'relative__address',
-                # 'relative__birth_date',
                 'relation__type',
                 'relation__id'
             ).filter(main_person=person)
@@ -87,10 +82,6 @@ def create_relation(request):
         return_data = Relation.objects.values(
                 'relative__first_name',
                 'relative__last_name',
-                # 'relative__phone_number',
-                # 'relative__email',
-                # 'relative__address',
-                # 'relative__birth_date',
                 'relation__type',
                 'relation__id'
             ).filter(main_person_id=person_id)
