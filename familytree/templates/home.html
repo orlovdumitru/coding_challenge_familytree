@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% load static %} {% block content%}
+<div>
+    <h2 class="row inline-element mr-15">All Records</h2>
+    <div class="row inline-element">
+        <a href="{% url 'person' %}"><button>New person</button></a>
+    </div>
+    <div id="main-table">
+        <table>
+            <thead>
+                <tr>
+                    <td>First/Last name</td>
+                    <td>Phone Number</td>
+                    <td>Email</td>
+                    <td>Address</td>
+                    <td>Birth Date</td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+<script src="{% static 'js/scripts.js' %}"></script>
+{% endblock content %}

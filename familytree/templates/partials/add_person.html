@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load static %} {% block content%}
+<div>
+    {% if person %}
+        <form action="{% url 'person' person_id=person.id %}" method="POST" class='row'>
+    {% else %}
+        <form action="{% url 'person' %}" method="POST" class='row'>
+    {% endif %}
+        {% csrf_token %}
+        <!-- <input type="text" name="person-id" id="person-id" style="display: none;" value="{{ person.id }}"> -->
+        <div class="input-group width-s-4 width-md-4 width-lg-2 width-xl-2">
+            <label for="first_name" class="width-s-4 width-md-1 width-lg-4 width-xl-1">Firs name</label>
+            <div class="input-container width-s-4 width-md-3 width-lg-4 width-xl-3">
+                <input type="text" name='first_name' id='first_name' class="form-field" placeholder="First Name" value="{{ person.first_name }}">
+            </div>
+        </div>
+        <div class="input-group width-s-4 width-md-4 width-lg-2 width-xl-2">
+            <label for="last_name" class="width-s-4 width-md-1 width-lg-4 width-xl-1">Last name</label>
+            <div class="input-container width-s-4 width-md-3 width-lg-4 width-xl-3">
+                <input type="text" name="last_name" id="last_name" class="form-field" placeholder="Last Name" value="{{ person.last_name }}">
+            </div>
+        </div>
+        <div class="input-group width-s-4 width-md-4 width-lg-2 width-xl-2">
+            <label for="phone_number" class="width-s-4 width-md-1 width-lg-4 width-xl-1">Phone number</label>
+            <div class="input-container width-s-4 width-md-3 width-lg-4 width-xl-3">
+                <input type="text" name="phone_number" id="phone_number" class="form-field" placeholder="222-222-2222" value="{{ person.phone_number }}">
+            </div>
+        </div>
+        <div class="input-group width-s-4 width-md-4 width-lg-2 width-xl-2">
+            <label for="email" class="width-s-4 width-md-1 width-lg-4 width-xl-1">Email</label>
+            <div class="input-container width-s-4 width-md-3 width-lg-4 width-xl-3">
+                <input type="text" name="email" id="email" class="form-field" placeholder="example@example.com" value="{{ person.email }}">
+            </div>
+        </div>
+        <div class="input-group width-s-4 width-md-4 width-lg-2 width-xl-2">
+            <label for="address" class="width-s-4 width-md-1 width-lg-4 width-xl-1">Address</label>
+            <div class="input-container width-s-4 width-md-3 width-lg-4 width-xl-3">
+                <input type="text" name="address" id="address" class="form-field" placeholder="222 Main str WA USA" value="{{ person.address }}">
+            </div>
+        </div>
+        <div class="input-group width-s-4 width-md-4 width-lg-2 width-xl-2">
+            <label for="birth_date" class="width-s-4 width-md-1 width-lg-4 width-xl-1">DOB</label>
+            <div class="input-container width-s-4 width-md-3 width-lg-4 width-xl-3">
+                <input type="text" name="birth_date" id="birth_date" class="form-field" placeholder="1980-02-15" value="{{ person.birth_date }}">
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit">Save</button>
+            <a href="{% url 'home' %}" class="a-button">Go back</a>
+        </div>
+    </form>
+</div>
+{% endblock content %}
